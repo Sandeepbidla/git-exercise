@@ -1,0 +1,215 @@
+1. Create a repository
+- Login to Github and create new repository
+- Use "git init" in terminal (Initialized empty Git repository in E:/Sandeep/vinsol_exercise/git-exercise/.git/)
+
+2. Make some changes -- add some files, change content of some files
+- Create some files using (touch index.html, touch about.html)
+- Added some files using (git add .)
+- No message was shown
+
+3. commit changes
+- Commit files using ( git commit -m "This is first commit")
+- [master (root-commit) 6ca8c3e] This is first commit
+  2 files changed, 12 insertions(+)
+  create mode 100644 about.html
+  create mode 100644 index.html
+
+4. repeat steps 1-3 for 2 more times. try to remove and ignore some files . Use git diff before each commit.
+- Create some files using (touch txt1.txt, touch text2.txt)
+- Added some files using (git add .)
+- Created gitignore file using (touch .gitignore)
+- Find difference using (git diff) Below message was shown
+- diff --git a/index.html b/index.html
+  index b4ae215..043a778 100644
+  --- a/index.html
+  +++ b/index.html
+  @@ -7,6 +7,7 @@
+   <title>Document</title>
+  </head>
+  <body>
+  +  <h1>This is Index file</h1>
+ </body>
+ </html>
+\ No newline at end of file
+
+5. create changes and revert those changes using git when those changes are not added to staging are
+- revert changes by using (git checkout index.html) Below message was shown
+- Updated 1 path from the index
+
+6. create changes and revert those changes after adding changes to staging area
+- Used (git reset HEAD .) for multiple files
+- Unstaged changes after reset:
+  M       index.html
+
+7. create change and revert those changes after committing those changes .
+- commit 19f43e5b2e57805bcd3bcbe830d04eb9ca369323 (HEAD -> master)
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 14:35:45 2021 +0530
+  Revert "^Z^Z^Z^Z^Z^Z^Z^Z
+  This reverts commit b2d99d34e0f5dce645559fb7079a848052a1dc11.
+
+8. Check repository status before adding changes to staging area, after adding changes to staging area and after committing changes
+- Used command (git status) Before adding to stagging area
+- On branch master
+  Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  
+   modified:   index.html
+  
+   no changes added to commit (use "git add" and/or "git commit -a")
+
+- Used command (git status) After adding to staging
+- On branch master
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+
+  modified:   index.html
+
+- Used Command (git status) after committing
+   On branch master
+   nothing to commit, working tree clean
+
+9. Display all the commits
+- Used (git log)
+- commit e40f91ae7112d0f5183f5f7564d93575d832610d (HEAD -> master)
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 14:44:50 2021 +0530
+
+    This is Fouth commit
+
+  commit 19f43e5b2e57805bcd3bcbe830d04eb9ca369323
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 14:35:45 2021 +0530
+
+    Revert "^Z^Z^Z^Z^Z^Z^Z^Z
+
+    This reverts commit b2d99d34e0f5dce645559fb7079a848052a1dc11.
+
+  commit b2d99d34e0f5dce645559fb7079a848052a1dc11
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 14:32:31 2021 +0530
+
+    This is Third commit
+
+  commit 1d78dca5d77ca252e0910b04b9f07a6fbc1ca54d
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 14:08:41 2021 +0530
+
+    This is second commit
+
+  commit 6ca8c3eca8a36530e25a2fc9364c319279e25f62
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 13:52:34 2021 +0530
+
+10. Display a specific commit.
+- Used (git log -p -1)
+- commit e40f91ae7112d0f5183f5f7564d93575d832610d (HEAD -> master)
+  Author: Sandeepbidla <sandeep@vinsol.com>
+  Date:   Sun Dec 5 14:44:50 2021 +0530
+
+    This is Fouth commit
+
+  diff --git a/index.html b/index.html
+  index 043a778..6cc7331 100644
+  --- a/index.html
+  +++ b/index.html
+  @@ -8,6 +8,6 @@
+ </head>
+ <body>
+   <h1>This is Index file</h1>
+ -
+ +  <h2> This is H2 heading</h2>
+ </body>
+ </html>
+\ No newline at end of file
+
+11. create branches called "feature1" and "feature2" from master. 11 . Delete branch "feature2"
+- Used (git checkout -b feature1) to create a new branch "feature1" from master branch
+- Now Switched to master used (git checkout master) below message was shown
+- $ git checkout master
+  Switched to branch 'master'
+
+- Used (git checkout -b feature2) to create a new branch "feature2" from master branch
+- $ git checkout -b feature2
+  Switched to a new branch 'feature2'
+
+- Used (git branch -d feature2) to delete branch "feature2"
+- $ git branch -d feature2
+  Deleted branch feature2 (was e40f91a).
+
+12. Make some commits on "feature1".
+- Added page used command (touch service.html)
+- $ git commit -m "service page added"
+ [feature1 789ff1e] service page added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 service.html
+
+13. Make some commits on branch "master".
+- $ git checkout master
+  Switched to branch 'master'
+
+- Added page used command (touch blog.html)
+
+- $ git commit -m "blog page added"
+ [master cd6a6b3] blog page added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 blog.html
+
+14. merge branch "feature1" in "master" (make some conflicts by changing same file on same line in both the branches) 15.create branch "feature2" from master .
+- Used command (git merge feature1)
+- $ git merge feature1
+ Merge made by the 'recursive' strategy.
+ service.html | 0
+ 1 file changed, 0 insertions(+), 
+
+15. Create branch "feature2" from master.
+- Used command (git checkout -b feature2)
+- $ git checkout -b feature2
+  Switched to a new branch 'feature2'
+
+15. Make some commits on "feature2". 
+- $ git commit -m "Added feature2 txt file"
+ [feature2 5bca035] Added feature2 txt file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature2.txt
+
+16. Make some commits on branch "master".
+- $ git commit -m "Footer section added in index"
+ [master 6c6ed3e] Footer section added in index
+ 1 file changed, 1 insertion(+)
+
+17. rebase branch "master" in "feature2" (make some conflicts by changing same file on same line in both the branches) .
+- Used (git rebase master)
+- $ git rebase master
+  Successfully rebased and updated refs/heads/feature2.
+
+18. find the differences between "merge" and "rebase" in above cases.
+- Merge:- It shows the saperate merge commit.
+- Rebase:- It is very much linear. It is not shows the saperate merge commit.
+
+19. Use git stash
+- Used command (git stash)
+-$ git stash
+Saved working directory and index state WIP on master: 6c6ed3e Footer section added in index
+
+20. create a repository on github for your working repository and push changes on remote repository.
+Complete the exercises given here
+
+- https://github.com/Sandeepbidla/git-exercise.git
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
